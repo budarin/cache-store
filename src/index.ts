@@ -1,5 +1,6 @@
 export class CacheStore {
-    storeName: string;
+    private storeName: string;
+
     constructor(storeName: string) {
         this.storeName = storeName;
     }
