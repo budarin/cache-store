@@ -29,9 +29,9 @@ const usersStore = [
     },
 ];
 
-await store.set('users', usersStore);
+await store.setData('users', usersStore);
 
-const users = await store.get('users');
+const users = await store.getData('users');
 
 users.forEach((user) => console.log(user));
 ```
