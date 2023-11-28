@@ -1,25 +1,25 @@
 {
-  "name": "@budarin/cache-store",
-  "version": "1.0.5",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "type": "module",
-  "repository": {
-    "url": "git+https://github.com/budarin/cache-store.git"
-  },
-  "author": "Vadim Budarin <budarin-vv@yandex.ru>",
-  "license": "MIT",
-  "devDependencies": {
-    "typescript": "^5.3.2"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
-  "scripts": {
-    "build": "sh ./tools/build.sh",
-    "prepublish": "npm run build",
-    "npm-publish": "npm run build && npm publish",
-    "upgrade deps": "yarn upgrade-interactive --latest;"
-  }
+    "name": "@budarin/cache-store",
+    "version": "1.0.6",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "type": "module",
+    "repository": {
+        "url": "git+https://github.com/budarin/cache-store.git"
+    },
+    "author": "Vadim Budarin <budarin-vv@yandex.ru>",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^5.3.2"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "build": "sh ./tools/build.sh",
+        "prepublish": "npm run build",
+        "npm-publish": "npm run build && npm publish",
+        "upgrade deps": "yarn upgrade-interactive --latest;"
+    }
 }
