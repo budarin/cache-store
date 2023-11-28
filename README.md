@@ -26,12 +26,12 @@ const usersStore = [
     {
         name: 'Petr',
         age: 21,
-    }
+    },
 ];
 
 await store.set('users', usersStore);
 
-await usesrs = store.get('users');
+const users = await store.get('users');
 
-users.forEach(user => console.log(user));
+users.forEach((user) => console.log(user));
 ```
