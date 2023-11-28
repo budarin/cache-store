@@ -1,8 +1,10 @@
 {
-  "name": "cache-store",
+  "name": "@budarin/cache-store",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/budarin/cache-store.git",
+  "repository": {
+    "url": "git+https://github.com/budarin/cache-store.git"
+  },
   "author": "Vadim Budarin <budarin-vv@yandex.ru>",
   "license": "MIT",
   "devDependencies": {
