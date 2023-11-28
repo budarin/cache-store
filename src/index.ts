@@ -27,9 +27,13 @@ export class CacheStore {
         return {};
     }
 
-    async removeData(key: string): Promise<boolean> {
+    async deleteData(key: string): Promise<boolean> {
         const cache = await globalThis.caches.open(this.storeName);
 
         return await cache.delete(key);
+    }
+
+    static async deleteStore(storeName: string): Promise<boolean> {
+        return await globalThis.caches.delete(storeName);
     }
 }

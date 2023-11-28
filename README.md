@@ -34,4 +34,8 @@ await store.setData('users', usersStore);
 const users = await store.getData('users');
 
 users.forEach((user) => console.log(user));
+
+const isRemoved = await store.deleteData('users');
+
+CacheStore.deleteStore('kv-storage');
 ```
