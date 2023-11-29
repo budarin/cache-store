@@ -13,7 +13,7 @@ export class CacheStore {
     }
 
     async setItem(key: string, item: object): Promise<void> {
-        this.logger.debug(['CACHE-STORE'], 'saveItem:', 'key:', key, 'item:', `"${item}"`);
+        this.logger.debug(['CACHE STORE'], 'saveItem:', 'key:', key, 'item:', `"${item}"`);
 
         const cache = await globalThis.caches.open(this.storeName);
         const response = new Response(JSON.stringify(item), {
@@ -26,7 +26,7 @@ export class CacheStore {
     }
 
     async getItem(key: string): Promise<object> {
-        this.logger.debug(['CACHE-STORE'], 'getItem:', 'key:', key);
+        this.logger.debug(['CACHE STORE'], 'getItem:', 'key:', key);
 
         const cache = await globalThis.caches.open(this.storeName);
         const response = await cache.match(key);
@@ -39,7 +39,7 @@ export class CacheStore {
     }
 
     async removeItem(key: string): Promise<boolean> {
-        this.logger.debug(['CACHE-STORE'], 'removeItem:', 'key:', key);
+        this.logger.debug(['CACHE STORE'], 'removeItem:', 'key:', key);
 
         const cache = await globalThis.caches.open(this.storeName);
 
@@ -47,7 +47,7 @@ export class CacheStore {
     }
 
     async clear(storeName: string): Promise<boolean> {
-        this.logger.debug(['CACHE-STORE'], 'clear storage');
+        this.logger.debug(['CACHE STORE'], 'clear storage');
 
         return await globalThis.caches.delete(storeName);
     }
