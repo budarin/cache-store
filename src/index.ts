@@ -2,12 +2,16 @@ export interface Logger {
     debug: (...data: unknown[]) => void;
 }
 
+const fakeLogger: Logger = {
+    debug: () => {},
+};
+
 export class CacheStore {
     private storeName: string;
 
     logger: Logger;
 
-    constructor(storeName: string, logger: Logger) {
+    constructor(storeName: string, logger: Logger = fakeLogger) {
         this.storeName = storeName;
         this.logger = logger;
     }
