@@ -17,7 +17,7 @@ yarn add @budarin/cache-store
 ```ts
 import { CacheStore } from '@budarin/cache-store';
 
-const store = new CacheStore('kv-storage');
+const store = new CacheStore('kv-storage'); //ew CacheStore('kv-storage', console);
 const usersStore = [
     {
         name: 'Ivan',
