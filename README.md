@@ -17,7 +17,7 @@ yarn add @budarin/cache-store
 ```ts
 import { CacheStore } from '@budarin/cache-store';
 
-const store = new CacheStore('kv-storage');
+const store = new CacheStore('kv-storage', console);
 const usersStore = [
     {
         name: 'Ivan',
@@ -32,10 +32,8 @@ const usersStore = [
 await store.setItem('users', usersStore);
 
 const users = await store.getItem('users');
-
 users.forEach((user) => console.log(user));
 
-const isRemoved = await store.removeItem('users');
-
-CacheStore.removeStore('kv-storage');
+await store.removeItem('users');
+await store.clear('kv-storage');
 ```
