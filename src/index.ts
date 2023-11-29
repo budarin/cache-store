@@ -5,7 +5,7 @@ export class CacheStore {
         this.storeName = storeName;
     }
 
-    async setData(key: string, json: object): Promise<void> {
+    async setItem(key: string, json: object): Promise<void> {
         const cache = await globalThis.caches.open(this.storeName);
         const response = new Response(JSON.stringify(json), {
             headers: {
@@ -16,7 +16,7 @@ export class CacheStore {
         await cache.put(key, response);
     }
 
-    async getData(key: string): Promise<object> {
+    async getItem(key: string): Promise<object> {
         const cache = await globalThis.caches.open(this.storeName);
         const response = await cache.match(key);
 
@@ -27,13 +27,13 @@ export class CacheStore {
         return {};
     }
 
-    async deleteData(key: string): Promise<boolean> {
+    async removeItem(key: string): Promise<boolean> {
         const cache = await globalThis.caches.open(this.storeName);
 
         return await cache.delete(key);
     }
 
-    static async deleteStore(storeName: string): Promise<boolean> {
+    static async removeStore(storeName: string): Promise<boolean> {
         return await globalThis.caches.delete(storeName);
     }
 }
