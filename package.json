@@ -1,9 +1,16 @@
 {
     "name": "@budarin/cache-store",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "type": "module",
+    "keywords": [
+        "Cache store"
+    ],
+    "description": "Service for storing json data in the browser cache",
+    "bugs": {
+        "url": "https://github.com/budarin/cache-store/issues"
+    },
     "repository": {
         "url": "git+https://github.com/budarin/cache-store.git"
     },

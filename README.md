@@ -29,13 +29,13 @@ const usersStore = [
     },
 ];
 
-await store.setData('users', usersStore);
+await store.setItem('users', usersStore);
 
-const users = await store.getData('users');
+const users = await store.getItem('users');
 
 users.forEach((user) => console.log(user));
 
-const isRemoved = await store.deleteData('users');
+const isRemoved = await store.removeItem('users');
 
-CacheStore.deleteStore('kv-storage');
+CacheStore.removeStore('kv-storage');
 ```
