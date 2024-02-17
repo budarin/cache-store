@@ -17,7 +17,7 @@ export class CacheStore {
     }
 
     async setItem(key: string, item: object): Promise<void> {
-        this.logger.debug('[ CACHE STORE ]', 'saveItem:', 'key:', key, 'item:', `"${item}"`);
+        this.logger.debug('[ CACHE STORE ]', 'saveItem:', 'key:', key, 'item:', item);
 
         const cache = await globalThis.caches.open(this.storeName);
         const response = new Response(JSON.stringify(item), {
@@ -30,15 +30,18 @@ export class CacheStore {
     }
 
     async getItem(key: string): Promise<object> {
-        this.logger.debug('[ CACHE STORE ]', 'getItem:', 'key:', key);
-
         const cache = await globalThis.caches.open(this.storeName);
         const response = await cache.match(key);
 
         if (response) {
-            return response.json();
+            const item = await response.json();
+
+            this.logger.debug('[ CACHE STORE ]', 'getItem:', 'key:', key, 'item:', item);
+
+            return item;
         }
 
+        this.logger.debug('[ CACHE STORE ]', 'getItem:', 'key:', key, 'item:', {});
         return {};
     }
 
