@@ -26,12 +26,16 @@ export class CacheStore {
             },
         });
 
-        await cache.put(key, response);
+        const fakeUrl = new URL(key, location.origin);
+        const request = new Request(fakeUrl.toString());
+
+        await cache.put(request, response);
     }
 
     async getItem(key: string): Promise<object> {
         const cache = await globalThis.caches.open(this.storeName);
-        const response = await cache.match(key);
+        const fakeUrl = new URL(key, location.origin);
+        const response = await cache.match(fakeUrl.toString());
 
         if (response) {
             const item = await response.json();
@@ -49,8 +53,8 @@ export class CacheStore {
         this.logger.debug('removeItem:', 'key:', key);
 
         const cache = await globalThis.caches.open(this.storeName);
-
-        return await cache.delete(key);
+        const fakeUrl = new URL(key, location.origin);
+        return await cache.delete(fakeUrl.toString());
     }
 
     async clear(storeName: string): Promise<boolean> {
